@@ -1,0 +1,14 @@
+name: http-nodejs
+services:
+  web:
+    env:
+      NODE_ENV: production
+      PORT: $${{PORT}}
+    build:
+      dockerfile: Dockerfile
+    command: npm start
+    ports:
+      - 80
+    healthcheck:
+      path: /
+      port: $${{PORT}}
